@@ -13,7 +13,7 @@
       ],
       "depNameTemplate": "bisq-network/bisq2",
       "datasourceTemplate": "github-releases",
-      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)(\\.\\d+)\\.(?<patch>\\d+)(\\.\\d+)?$",
+      "versioningTemplate": "regex:^(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<patch>\\d+)?$",
       "extractVersionTemplate": "^(?<version>\\d+\\.\\d+\\.\\d+)",
       "currentValueTemplate": "{{#if currentValue}}{{{currentValue}}}{{else}}0.0.0{{/if}}"
     }
