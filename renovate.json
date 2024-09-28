@@ -24,7 +24,7 @@
       "extractVersion": "^v(?<version>\\d+\\.\\d+\\.\\d+)"
     },
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": ["major", "minor", "patch", "pin", "digest"],
       "automerge": true
     }
   ]
