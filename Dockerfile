@@ -32,7 +32,7 @@ RUN \
     APP_ICON_URL="https://avatars.githubusercontent.com/u/6928048?s=256&v=4" && \
     install_app_icon.sh "$APP_ICON_URL"
 
-# this will result in usless stuff inside the layer but hel us to debug problems more easy
+# this will result in usless stuff inside the layer but help us to debug problems more easy
 RUN mkdir bisq-install \
     && cd bisq-install \
     && wget -qO $BISQ_DEBFILE "$BISQ_DOL_URL" \
