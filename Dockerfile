@@ -5,7 +5,8 @@ ARG BISQ_VERSION=2.1.2
 ENV BISQ_DEBFILE Bisq-$BISQ_VERSION.deb
 ENV BISQ_DOL_URL https://github.com/bisq-network/bisq2/releases/download/v$BISQ_VERSION/$BISQ_DEBFILE
 ENV BISQ_ASC_URL https://github.com/bisq-network/bisq2/releases/download/v$BISQ_VERSION/$BISQ_DEBFILE.asc
-ENV BISQ_PGP_KEY B493319106CC3D1F252E19CBF806F422E222AA02
+ENV BISQ_PGP_KEY1 B493319106CC3D1F252E19CBF806F422E222AA02
+ENV BISQ_PGP_KEY2 B8A5D214ADFAA387A14C8BCF02AA2BAE387C8307
 
 WORKDIR /tmp
 
@@ -39,7 +40,8 @@ RUN mkdir bisq-install \
     && wget -qO Bisq.asc "$BISQ_ASC_URL"
 
 RUN cd bisq-install \
-    && gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys "$BISQ_PGP_KEY" \
+    && gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys "$BISQ_PGP_KEY1" \
+    && gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys "$BISQ_PGP_KEY2" \
     && gpg --digest-algo SHA256 --verify Bisq.asc $BISQ_DEBFILE \
     && mkdir -p /usr/share/desktop-directories /usr/share/applications
 
