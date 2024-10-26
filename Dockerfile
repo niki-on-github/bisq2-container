@@ -32,13 +32,18 @@ RUN \
     APP_ICON_URL="https://avatars.githubusercontent.com/u/6928048?s=256&v=4" && \
     install_app_icon.sh "$APP_ICON_URL"
 
+# this will result in usless stuff inside the layer but hel us to debug problems more easy
 RUN mkdir bisq-install \
     && cd bisq-install \
     && wget -qO $BISQ_DEBFILE "$BISQ_DOL_URL" \
-    && wget -qO Bisq.asc "$BISQ_ASC_URL" \
+    && wget -qO Bisq.asc "$BISQ_ASC_URL"
+
+RUN cd bisq-install \
     && gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys "$BISQ_PGP_KEY" \
     && gpg --digest-algo SHA256 --verify Bisq.asc $BISQ_DEBFILE \
-    && mkdir -p /usr/share/desktop-directories /usr/share/applications \
+    && mkdir -p /usr/share/desktop-directories /usr/share/applications
+
+RUN cd bisq-install \
     && dpkg -i $BISQ_DEBFILE \
     && cd .. \
     && rm -rf bisq-install
