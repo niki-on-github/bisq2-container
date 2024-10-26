@@ -40,6 +40,7 @@ RUN mkdir bisq-install \
     && wget -qO $BISQ_DEBFILE "$BISQ_DOL_URL" \
     && wget -qO Bisq.asc "$BISQ_ASC_URL"
 
+# download BISQ_PGP_KEY2
 RUN curl https://bisq.network/pubkey/387C8307.asc | gpg --import || true
 
 RUN cd bisq-install \
