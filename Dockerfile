@@ -1,4 +1,4 @@
-FROM jlesage/baseimage-gui:ubuntu-24.04-v4.6
+FROM docker.io/jlesage/baseimage-gui:ubuntu-24.04-v4.7
 
 ARG BISQ_VERSION=2.1.6
 
@@ -24,7 +24,8 @@ RUN \
         gpg \
         gpg-agent \
         ca-certificates \
-        xdg-utils
+        xdg-utils \
+        tor
 
 RUN mkdir -p ~/.gnupg && \
     echo "pinentry-mode loopback" >> ~/.gnupg/gpg.conf && \
