@@ -1,6 +1,6 @@
 FROM docker.io/jlesage/baseimage-gui:ubuntu-24.04-v4.7
 
-ARG BISQ_VERSION=2.1.7
+ARG BISQ_VERSION=2.1.8
 
 ENV BISQ_DEBFILE Bisq-$BISQ_VERSION.deb
 ENV BISQ_DOL_URL https://github.com/bisq-network/bisq2/releases/download/v$BISQ_VERSION/$BISQ_DEBFILE
